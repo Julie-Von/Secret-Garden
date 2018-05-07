@@ -46,7 +46,7 @@
   
      Take n=3, k=3 as an example to explain:
      
-     1) Decide the 1st digit:
+     1 ）Decide the 1st digit:
      
         x = k/(n-1)!  =  3/2  =  1.5 
         
@@ -54,7 +54,7 @@
           
         If the result is between (d,d+1], then the 1st_digit is d+1; here d=1, then the 1st_digit is 2.
         
-     2) Then there are 2 digits to be decided.
+     2） Then there are 2 digits to be decided.
      
         Since the 1st digit is fixed, we can let k minus the (1st_digit - 1)x(n-1)!. 
         
