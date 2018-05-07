@@ -26,17 +26,19 @@
     Output: "2314"
     
 # Idea：
-  1. For the 1st digit: n possibilities;
+  1. Obviously:
+  
+     For the 1st digit: n possibilities;
   
      For the 2nd digit: n-1 possibilities;
      
-     ...
+     \...
      
   2. Think in another way:
   
      if the 1st digit is fixed, then there are (n-1)! possibilities of the remaining digits;
      
-     ...
+     \...
      
      if the d_st digit is fixed, then there are (n-d)! possibilities of the remaining digits;
      
@@ -48,7 +50,7 @@
      
         x = k/(n-1)!  =  3/2  =  1.5 
         
-          //Note: Since all the numbers are int by default, I added 0.0 to the (n-1)!, then we got the correct outcome.
+          Note: Since all the numbers are int by default, I added 0.0 to the (n-1)!, then we got the correct outcome.
           
         If the result is between (d,d+1], then the 1st_digit is d+1; here d=1, then the 1st_digit is 2.
         
