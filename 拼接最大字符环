@@ -1,0 +1,49 @@
+#Arr = raw_input()
+#Arr_L = Arr.split(' ')
+#N = len(Arr_L)
+#print(N)
+
+def reverseToLage(Arr_L):
+    for i in range(len(Arr_L)):
+        l = len(Arr_L[i])
+        if Arr_L[i][l - 1] > Arr_L[i][0]:
+            Arr_L[i]=Arr_L[i][::-1]
+        elif Arr_L[i][l - 1] == Arr_L[i][0] and l>3:
+            k=1
+            while k<=l/2:
+                if Arr_L[i][k]<Arr_L[i][l-k-1]:
+                    Arr_L[i] = Arr_L[i][::-1]
+                    break
+    return Arr_L
+
+def TotalLargest(Arr_L):
+    res=''
+    n=len(Arr_L)
+    for i in range(n):
+        for j in range(i+1,n):
+            if len(Arr_L[i]) > len(Arr_L[j]):
+                long_num,long = Arr_L[i],len(Arr_L[i])
+                short_num,short = Arr_L[j],len(Arr_L[j])
+            else:
+                long_num,long = Arr_L[j],len(Arr_L[j])
+                short_num,short = Arr_L[i],len(Arr_L[i])
+            k=0
+            while k<long:   # This is the core part of this algorithm
+                if long_num[k%long]<short_num[k%short]:
+                    temp_container = [short_num,long_num]
+                    break
+                elif long_num[k%long]>short_num[k%short]:
+                    temp_container = [long_num,short_num]
+                    break
+                k+=1
+            if k==long and short_num[short-1]==long_num[long-1]:
+                temp_container = [short_num, long_num] # in this case, whoever is first doesn't matter
+            Arr_L[i]=temp_container[0]
+            Arr_L[j]=temp_container[1]
+
+    for item in Arr_L:
+        res+=item
+    return res
+
+k=['123','253','789']
+print(TotalLargest(reverseToLage(k)))
